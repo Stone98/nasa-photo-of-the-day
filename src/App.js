@@ -3,6 +3,7 @@ import axios from "axios";
 import MainHeader from "./components/Header/MainHeader";
 import Content from "./components/Content/Content";
 import "./App.css";
+import styled from "styled-components";
 
 export default function App() {
   const [apod, setApod] = useState([]);
@@ -38,12 +39,17 @@ export default function App() {
     fetchApod();
   }, []);
 
+  const StyledPage = styled.div`
+  background-color: ${(pr) => pr.theme.backgroundColor};
+  text-align: center;
+  `;
+
   return (
-    <div className="App">
+    <StyledPage>
       <MainHeader italic apod={apod} />
       <Content italic apod={apod} />
-    </div>
+    </StyledPage>
   );
 
-
 }
+
