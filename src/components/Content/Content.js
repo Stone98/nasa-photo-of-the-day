@@ -1,4 +1,5 @@
 import React from 'react'
+import "./Content.css";
 
 export default function Content(props) {
     const { apod } = props;
@@ -12,7 +13,7 @@ export default function Content(props) {
                 <h2>{apod.title}</h2>
             </div>
             <div>
-                <p>Explanation: {apod.explanation}</p>
+                <p><strong>Explanation:</strong> {apod.explanation}</p>
             </div>
         </div>
     )
