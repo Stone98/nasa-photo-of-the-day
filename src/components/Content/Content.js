@@ -2,10 +2,10 @@ import React from 'react'
 import styled from 'styled-components';
 
 export default function Content(props) {
-    const { italic, apod } = props;
+    const { bold, italic, apod } = props;
 
     return (
-        <StyledInfo italic={italic}>
+        <StyledInfo bold={bold} italic={italic}>
             <div>
                 <img src={apod.hdurl} alt='nasa' />
             </div>
@@ -13,7 +13,8 @@ export default function Content(props) {
                 <h2>{apod.title}</h2>
             </div>
             <div>
-                <p><strong>Explanation:</strong> {apod.explanation}</p>
+                <h3>Explanation:</h3>
+                <p> {apod.explanation}</p>
             </div>
         </StyledInfo>
     )
@@ -36,6 +37,15 @@ h2 {
   }
   transition: transform 0.5s ease-in-out; 
   padding-top: 2em;
+}
+h3 {
+font-style: ${(pr) => (pr.bold ? 'bold' : 'initial')};
+    &:hover {
+    transform: scale(1.1);
+    transition: transform 0.5s ease-in-out;
+    color: ${(pr) => pr.theme.tertiaryColor};
+  }
+  transition: transform 0.5s ease-in-out; 
 }
 p {
 font-style: ${(pr) => (pr.italic ? 'italic' : 'normal')};
