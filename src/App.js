@@ -28,7 +28,7 @@ export default function App() {
               setApod(placeHolderData);
             }
             ).catch((err) => {
-              console.log('Error loading config');
+              console.log('Error loading config there needs to be a file called config.json with a key call nasakey');
             }
 
             )
