@@ -40,8 +40,8 @@ export default function App() {
 
   return (
     <div className="App">
-      <MainHeader apod={apod} />
-      <Content apod={apod} />
+      <MainHeader italic apod={apod} />
+      <Content italic apod={apod} />
     </div>
   );
 

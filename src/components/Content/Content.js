@@ -1,13 +1,13 @@
 import React from 'react'
-import "./Content.css";
+import styled from 'styled-components';
 
 export default function Content(props) {
-    const { apod } = props;
+    const { italic, apod } = props;
 
     return (
-        <div>
+        <StyledInfo italic={italic}>
             <div>
-                <img src={apod.hdurl} alt='nasa' style={{ maxWidth: '75%' }} />
+                <img src={apod.hdurl} alt='nasa' />
             </div>
             <div>
                 <h2>{apod.title}</h2>
@@ -15,7 +15,31 @@ export default function Content(props) {
             <div>
                 <p><strong>Explanation:</strong> {apod.explanation}</p>
             </div>
-        </div>
+        </StyledInfo>
     )
 }
+
+const StyledInfo = styled.div`
+img {
+max-width: 75%;
+    &:hover {
+    transform: scale(1.1);
+    transition: transform 0.5s ease-in-out;
+  }
+  transition: transform 0.5s ease-in-out;
+}
+h2 {
+   &:hover {
+    transform: scale(1.1);
+    transition: transform 0.5s ease-in-out;
+    color: ${(pr) => pr.theme.secondaryColor};
+  }
+  transition: transform 0.5s ease-in-out; 
+  padding-top: 2em;
+}
+p {
+font-style: ${(pr) => (pr.italic ? 'italic' : 'normal')};
+padding-bottom: 2em;
+}
+`;
 
